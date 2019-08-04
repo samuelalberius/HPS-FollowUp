@@ -1,3 +1,4 @@
+
 getUserInput();
 
 async function getUserInput() {
@@ -79,7 +80,6 @@ function graph_data(matrix) {
       borderColor: 'blue',
     }
   }
-
   return graphs
 }
 
@@ -113,4 +113,12 @@ function drawGraph(matrix) {
     data: graphData,
     options: chartOptions,
   })
+
+  var outputStream = [];
+
+  for(var i = 0; i < matrix.length; i++) {
+    outputStream.push('data for day ' + i + ': ' + matrix[i] + '\n');
+    }
+
+  document.getElementById("output").innerHTML = outputStream;
 }
