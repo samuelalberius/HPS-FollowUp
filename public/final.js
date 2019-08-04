@@ -45,7 +45,7 @@ async function getData() {
 
 //Isolates wanted values from selected rows
   for (var i = 0; i < step2.length; i++) {
-    var temp = []
+    var temp = [];
     for (var j = 0; j < step2[i].length; j = j + 2) {
       temp.push(step2[i][j]);
     }
