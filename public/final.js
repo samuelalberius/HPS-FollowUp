@@ -1,7 +1,7 @@
 let checkid = '';
 let checkstartdate = '';
 let checkenddate = '';
-let step2 = [];
+let matrix = [];
 
 getUserInput();
 
@@ -28,35 +28,35 @@ async function getData() {
   table.forEach(line => {
     const values = line.split(';');
     if(values[0] == checkid && values[2] >= checkstartdate && values[2] <= checkenddate) {
-      step2.push(values.slice(10,58));
+      matrix.push(values.slice(10,58));
     }
   })
 
 //Isolates wanted values from selected rows
-  for (var i = 0; i < step2.length; i++) {
+  for (var i = 0; i < matrix.length; i++) {
     var temp = [];
-    for (var j = 0; j < step2[i].length; j = j + 2) {
-      temp.push(step2[i][j]);
+    for (var j = 0; j < matrix[i].length; j = j + 2) {
+      temp.push(matrix[i][j]);
     }
-    step2[i] = temp
+    matrix[i] = temp
   }
 
 //Converts arrays of comma-denoted values to readable values for graph-input
-  step2.forEach( row => {
+  matrix.forEach( row => {
     row.forEach( index => {
       index = index.replace(/,/,'.');
       row.push(index);
     })
     row.splice(0,24);
   })
-  step2.forEach( row => {
+  matrix.forEach( row => {
     row.forEach( index => {
       row.push(parseFloat(index));
     })
       row.splice(0,24);
   })
-  
-  console.log(step2);
+
+  console.log(matrix);
   drawGraph();
 
 }
@@ -70,7 +70,7 @@ function drawGraph() {
       labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
       datasets:[{
         label: 'this is empty',
-        data: step2[0],
+        data: matrix[0],
         fill: false,
         borderWidth: 4,
         borderColor: '#8e5aff',
