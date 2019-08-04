@@ -5,7 +5,7 @@ let step2 = [];
 
 getUserInput();
 
-function getUserInput() {
+async function getUserInput() {
 
   const myForm = document.getElementById('userForm');
   myForm.addEventListener("submit", (e) => {
@@ -16,7 +16,9 @@ function getUserInput() {
 
   console.log('form submitted');
 
-  getData();
+    getData();
+
+
 
   })
 }
@@ -67,5 +69,42 @@ async function getData() {
       row.splice(0,24);
   })
 
+  drawGraph();
+
+}
+
+function drawGraph() {
+
   console.log(step2);
+
+  const myChart = document.getElementById('chartLeft').getContext('2d');
+  const myGraph = new Chart(myChart, {
+    type:'line',
+    data: {
+      labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+      datasets:[{
+        label: 'this is empty',
+        data: step2[0],
+        fill: false,
+        borderWidth: 4,
+        borderColor: '#8e5aff',
+
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            callback: function(value, index, values) {
+              return value + ' kW'
+            }
+          }
+        }]
+      },
+      legend: {
+        display: false,
+      }
+    }
+  });
 }
