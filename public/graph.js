@@ -10,7 +10,7 @@ const xlables = ['00','01', '02', '03', '04', '05', '06', '07', '08', '09', '10'
 
 
 document.getElementById("submit").addEventListener("click", getUserInput);
-makeChart();
+
 
 
 async function makeChart() {
@@ -23,7 +23,7 @@ const graphLeft = new Chart(myChart, {
     labels: xlables,
     datasets:[{
       label: '',
-      data: [0,1,1,1,1,2,2,2,2,3,4,6,7,4,3,2,2,2,2,2,2],
+      data:,
       fill: false,
       borderWidth: 4,
       borderColor: '#8e5aff',
@@ -46,36 +46,6 @@ const graphLeft = new Chart(myChart, {
     }
   }
   });
-  const myChart2 = document.getElementById('chartRight').getContext('2d');
-  const ChartPower2 = new Chart(myChart2, {
-  type:'line', //bar, horizontalBar, pie, line, doughnut, radar, polarArea
-  data:{
-    labels: xlables,
-    datasets:[{
-      label: '',
-      data: [1,2,3,4,5],
-      fill: false,
-      borderWidth: 4,
-      borderColor: '#ff5a5f',
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true,
-          callback: function(value, index, values) {
-            return value + ' kW'
-          }
-        },
-      }],
-    },
-    legend: {
-      display: false,
-    }
-  }
-  });
-
 
 }
 
@@ -117,6 +87,7 @@ async function getData() {
     })
       row.splice(0,24);
   })
+  console.log(step2);
 }
 
 function getUserInput() {
@@ -124,8 +95,11 @@ function getUserInput() {
   const myForm = document.getElementById('userForm');
   myForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  checkid = document.getElementById('ID').value;
+  checkid = document.getElementById('id').value;
   checkstartdate = document.getElementById('startdate').value;
   checkenddate = document.getElementById('enddate').value;
+
+  getData();
+
   })
 }
