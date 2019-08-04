@@ -64,33 +64,52 @@ async function getData() {
 function drawGraph() {
 
   const myChart = document.getElementById('chartLeft').getContext('2d');
-  const myGraph = new Chart(myChart, {
-    type:'line',
-    data: {
-      labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
-      datasets:[{
-        label: 'this is empty',
-        data: matrix[0],
-        fill: false,
-        borderWidth: 4,
-        borderColor: '#8e5aff',
 
+  var dataFirst = {
+    label: 'this is empty',
+    data: matrix[0],
+    fill: false,
+    borderColor: 'red',
+  }
+
+  var dataSecond = {
+    label: 'this is empty',
+    data: matrix[1],
+    fill: false,
+    borderColor: 'blue'
+  }
+
+  var dataThird = {
+    label: 'this is empty',
+    data: matrix[2],
+    fill: false,
+    borderColor: 'green',
+  }
+
+  var graphData = {
+    labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+    datasets: [dataFirst, dataSecond, dataThird],
+  }
+
+  var chartOptions = {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+          callback: function(value, index, values) {
+            return value + ' kW'
+          }
+        }
       }]
     },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            callback: function(value, index, values) {
-              return value + ' kW'
-            }
-          }
-        }]
-      },
-      legend: {
-        display: false,
-      }
+    legend: {
+      display: false,
     }
-  });
+  }
+
+  var lineChart = new Chart(myChart, {
+    type: 'line',
+    data: graphData,
+    options: chartOptions,
+  })
 }
