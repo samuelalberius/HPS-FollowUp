@@ -111,6 +111,7 @@ form {
 
 .graphArea p {
 	padding: 100px;
+	text-align: left;
 }
 
 canvas {

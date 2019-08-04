@@ -117,7 +117,7 @@ function drawGraph(matrix) {
   var outputStream = [];
 
   for(var i = 0; i < matrix.length; i++) {
-    outputStream.push('data for day ' + i + ': ' + matrix[i] + '\n');
+    outputStream.push("\n" + matrix[i]);
     }
 
   document.getElementById("output").innerHTML = outputStream;
