@@ -23,7 +23,7 @@ function getUserInput() {
   })
 }
 
-async function getData() {
+function getData() {
 
   console.log(checkid);
   console.log(checkstartdate);
