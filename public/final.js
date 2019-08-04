@@ -59,15 +59,20 @@ function parse(matrix){
   return matrix;
 }
 
-async function getData(id, startdate, enddate) {
-
+async function readFile() {
   const response = await fetch('resources/produktionsdata.csv');
   const data = await response.text();
   var table =  data.split('\n');
 
-  var matrix = parse(consolidate(findEntries(table, id, startdate, enddate)));
+  return table;
+}
 
-  drawGraph(matrix);
+function getData(id, startdate, enddate) {
+  readFile().then(data => {
+    matrix = parse(consolidate(findEntries(data, id, startdate, enddate)));
+    drawGraph(matrix);
+    printData(matrix);
+  });
 }
 
 function graph_data(matrix) {
@@ -113,7 +118,10 @@ function drawGraph(matrix) {
     data: graphData,
     options: chartOptions,
   })
+  printData(matrix)
+}
 
+function printData(matrix) {
   var outputStream = [];
 
   for(var i = 0; i < matrix.length; i++) {
