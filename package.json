@@ -1,0 +1,20 @@
+{
+  "name": "followup",
+  "version": "1.0.0",
+  "description": "follow up tool for HPSolartech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "solar",
+    "cell",
+    "analysis"
+  ],
+  "author": "Samuel Alberius",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^2.8.0",
+    "express": "^4.17.1"
+  }
+}

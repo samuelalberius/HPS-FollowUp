@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Web Application for Analysing Solcar Cells">
+	<meta name="author" content="Samuel Alberius, Filip Alberius">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+	<link rel="stylesheet" href="stylesheet.css" type="text/css">
+	<title>HPSolartech Diagnostics</title>
+</head>
+
+<body>
+<header>
+		<!--<a href="https://hpsolartech.se/"><img src="resources/hpslogo.png" alt="logo" class="logo"></a-->
+</header>
+<main>
+	<div class="background">
+		<div class="container">
+		<img src="resources/hpslogo.png" alt="hpslogo" class="logo">
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Calculate</a></li>
+					<li><a href="#">Info</a></li>
+					<li><a href="#">For shits and giggles</a></li>
+				</ul>
+			</nav>
+		</div>
+		<form id="userForm" class"form" action="#" method="get">
+			<div class="textAbove">
+				Enter solar cell data here.
+			</div>
+			<div class="text1">
+				COSTUMER ID.
+			</div>
+			<input type="text" id="id" placeholder="Customer ID" >
+				<div class="text1">
+					TYPE OF ANALYSIS.
+				</div>
+				<select name="type" >
+					<option value="none">None</option>
+					<option value="sim">Compare to simulation</option>
+					<option value="sim">Compare to other cell plant</option>
+					<option value="sim">Compare to self</option>
+				</select>
+				<div class="dates">
+					<div class="text1">
+					START DATE.
+					</div>
+					<input type="text" id="startdate" placeholder="YYMMDD + 0000" maxlength="12">
+					<div class="text1">
+					END DATE.
+					</div>
+					<input type="text" id="enddate" placeholder="YYMMDD + 0000" maxlength="12">
+				</div>
+			<button type="submit" id="submit">Submit</button>
+			<div class="scroller">
+				<button onclick="location.href='http://localhost:3000/#scrollpoint'" type="button">Graphs</button>
+			</div>
+		</div>
+
+	</div>
+	<div class="divider">
+		<a name="scrollpoint"></a>
+		<p>Some usefull graphs. Hopefully.</p>
+	</div>
+	<div class="graphArea">
+		<div id="graphLeft" class="graph">
+			<div id ="nameLeft" class="name">
+				Simulated output.
+			</div>
+			<canvas id="chartLeft"></canvas>
+		</div>
+		<div id="informationRight" class="graph">
+			<div id ="nameRight" class="name">
+				Raw data collected.
+			</div>
+			<p> </p>
+		</div>
+	<script src="graph.js"></script>
+	</div>
+</main>
+<footer>
+	<div class="footerContainer">
+		HPSolartech
+	</div>
+</footer>
+</body>
+</html>

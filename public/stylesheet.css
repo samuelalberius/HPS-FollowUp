@@ -1,0 +1,231 @@
+* {
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	background: white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+	width: 170px;
+	padding: 4px 40px;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.background {
+	background-image: url(resources/bakgrund.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+}
+
+form {
+	display: inline-block;
+	margin: 100px 0px 0px 300px;
+	padding: 50px 20px 30px 50px;
+	width: 360px;
+	border-radius: 6px;
+	background: white;
+	border-color: red;
+
+	font-color: red;
+	color: #242323;
+}
+
+.textAbove {
+	font-size: 40px;
+	margin: 0px 70px 20px 0px;
+}
+
+.text1 {
+	font-size: 18px;
+	float: left;
+	padding: 14px 0px 0px 4px;
+	width: 100%;
+}
+
+.dates {
+	width: 50%;
+}
+
+.scroller {
+
+}
+
+.divider {
+	margin: 30px 0px 60px 40px;
+	font-size: 30px;
+	color: #313133;
+}
+
+.graphArea {
+	width: 100%;
+	padding: 20px 0px 1000px 0px;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.graph {
+	width: 44%;
+	display: inline-block;
+	padding: 30px 20px;
+	margin: 0px 40px;
+	background-color: white;
+	border: white solid 2px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 6px #bababa;
+
+}
+
+#graphLeft:hover {
+
+}
+
+#graphRight:hover {
+
+}
+
+.name {
+	font-size: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#nameLeft {
+
+}
+
+#nameRight {
+
+}
+
+
+canvas {
+
+}
+
+input, select {
+	width: 90%;
+	height: 35px;
+	border-radius: 0px;
+	font-size: 16px;
+	text-indent: 10px;
+	border-width: 0px 0px 2px 0px;
+	border-color: #292929;
+	border-style: solid;
+	margin: 4px;
+	outline: none;
+	background-color: white;
+}
+
+input:focus {
+
+}
+
+select:focus {
+	outline: none;
+}
+
+button {
+	float: right;
+	margin: 30px 40px 0px 0px;
+	width: 100px;
+	height: 40px;
+	background-color: #ff5a5f;
+	border-width: 2px;
+	border-color: #ff5a5f;
+	border-radius: 3px;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: white;
+	border-style: solid;
+}
+
+button:hover {
+	background-color: #ed5358;
+	border-color: #ed5358;
+	transition: .5s;
+
+}
+
+button:focus {
+
+
+}
+
+header {
+
+}
+
+header::after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
+nav {
+	float: right;
+	margin-right: 60px;
+}
+
+nav ul {
+	margin: 20px;
+	padding: 0;
+	list-style: none;
+}
+
+nav li {
+	display: inline-block;
+	margin-left: 40px;
+
+}
+
+a {
+
+}
+
+nav a {
+	color: #ffffff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 14px;
+}
+
+nav a:hover {
+	border-width: 0px 0px 2px 0px;
+	border-style: solid;
+	border-radius: 2px;
+	border-color: #ff5a5f;
+	border-spacing: 4px;
+	padding-bottom: 8px;
+}
+
+main {
+
+}
+
+footer {
+	width: 100%;
+	background: #102027;
+	text-align: center;
+	color: white;
+	padding: 10px 0px;
+
+}
+
+footer a {
+	text-decoration: none;
+	color: white;
+	font-size: 14px;
+	margin: 10px;
+	padding-top: 100px;
+}
