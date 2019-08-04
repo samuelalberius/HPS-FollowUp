@@ -1,38 +1,33 @@
-let checkid = '';
-let checkstartdate = '';
-let checkenddate = '';
-let matrix = [];
-
 getUserInput();
 
 async function getUserInput() {
-
   const myForm = document.getElementById('userForm');
   myForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  checkid = document.getElementById('id').value;
-  checkstartdate = document.getElementById('startdate').value + '0000';
-  checkenddate = document.getElementById('enddate').value + '0000';
+    e.preventDefault();
+    var id = document.getElementById('id').value;
+    var startdate = document.getElementById('startdate').value + '0000';
+    var enddate = document.getElementById('enddate').value + '0000';
 
-    getData();
+    getData(id, startdate, enddate);
   })
 }
 
-async function getData() {
-
-  const response = await fetch('resources/produktionsdata.csv');
-  const data = await response.text();
-  const table = data.split('\n');
-
 //Selects named rows from CSV based on input ID and dates
+function findEntries(table, id, startdate, enddate) {
+  var matrix = [];
+
   table.forEach(line => {
     const values = line.split(';');
-    if(values[0] == checkid && values[2] >= checkstartdate && values[2] <= checkenddate) {
+    if(values[0] == id && values[2] >= startdate && values[2] <= enddate) {
       matrix.push(values.slice(10,58));
     }
   })
 
+  return matrix;
+}
+
 //Isolates wanted values from selected rows
+function consolidate(matrix){
   for (var i = 0; i < matrix.length; i++) {
     var temp = [];
     for (var j = 0; j < matrix[i].length; j = j + 2) {
@@ -41,7 +36,11 @@ async function getData() {
     matrix[i] = temp
   }
 
+  return matrix;
+}
+
 //Converts arrays of comma-denoted values to readable values for graph-input
+function parse(matrix){
   matrix.forEach( row => {
     row.forEach( index => {
       index = index.replace(/,/,'.');
@@ -56,39 +55,41 @@ async function getData() {
       row.splice(0,24);
   })
 
-  console.log(matrix);
-  drawGraph();
-
+  return matrix;
 }
 
-function drawGraph() {
+async function getData(id, startdate, enddate) {
+
+  const response = await fetch('resources/produktionsdata.csv');
+  const data = await response.text();
+  var table =  data.split('\n');
+
+  var matrix = parse(consolidate(findEntries(table, id, startdate, enddate)));
+
+  drawGraph(matrix);
+}
+
+function graph_data(matrix) {
+  var graphs = []
+
+  for (var i = 0; i < matrix.length; i++) {
+    graphs[i] = {
+      data: matrix[i],
+      fill: false,
+      borderColor: 'blue',
+    }
+  }
+
+  return graphs
+}
+
+function drawGraph(matrix) {
 
   const myChart = document.getElementById('chartLeft').getContext('2d');
-
-  var dataFirst = {
-    label: 'this is empty',
-    data: matrix[0],
-    fill: false,
-    borderColor: 'red',
-  }
-
-  var dataSecond = {
-    label: 'this is empty',
-    data: matrix[1],
-    fill: false,
-    borderColor: 'blue'
-  }
-
-  var dataThird = {
-    label: 'this is empty',
-    data: matrix[2],
-    fill: false,
-    borderColor: 'green',
-  }
-
+  var dataset = graph_data(matrix);
   var graphData = {
     labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
-    datasets: [dataFirst, dataSecond, dataThird],
+    datasets: dataset,
   }
 
   var chartOptions = {
