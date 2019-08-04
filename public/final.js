@@ -53,7 +53,7 @@ async function getData() {
 //Converts arrays of comma-denoted values to readable values for graph-input
   step2.forEach( row => {
     row.forEach( index => {
-      index = index.replace(/ä/,'.');
+      index = index.replace(/,/,'.');
       row.push(index);
     })
     row.splice(0,24);
