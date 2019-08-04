@@ -14,23 +14,11 @@ async function getUserInput() {
   checkstartdate = document.getElementById('startdate').value + '0000';
   checkenddate = document.getElementById('enddate').value + '0000';
 
-  console.log('form submitted');
-
     getData();
-
-
-
   })
 }
 
 async function getData() {
-
-  console.log(checkid);
-  console.log(checkstartdate);
-  console.log(checkenddate);
-
-  console.log(typeof(checkstartdate));
-
 
   const response = await fetch('resources/produktionsdata.csv');
   const data = await response.text();
@@ -41,7 +29,6 @@ async function getData() {
     const values = line.split(';');
     if(values[0] == checkid && values[2] >= checkstartdate && values[2] <= checkenddate) {
       step2.push(values.slice(10,58));
-      console.log(step2.length);
     }
   })
 
@@ -68,14 +55,13 @@ async function getData() {
     })
       row.splice(0,24);
   })
-
+  
+  console.log(step2);
   drawGraph();
 
 }
 
 function drawGraph() {
-
-  console.log(step2);
 
   const myChart = document.getElementById('chartLeft').getContext('2d');
   const myGraph = new Chart(myChart, {
