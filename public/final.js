@@ -11,8 +11,8 @@ function getUserInput() {
   myForm.addEventListener("submit", (e) => {
   e.preventDefault();
   checkid = document.getElementById('id').value;
-  checkstartdate = document.getElementById('startdate').value;
-  checkenddate = document.getElementById('enddate').value;
+  checkstartdate = document.getElementById('startdate').value + '0000';
+  checkenddate = document.getElementById('enddate').value + '0000';
 
   console.log('form submitted');
 
@@ -27,6 +27,8 @@ async function getData() {
   console.log(checkstartdate);
   console.log(checkenddate);
 
+  console.log(typeof(checkstartdate));
+
 
   const response = await fetch('resources/produktionsdata.csv');
   const data = await response.text();
@@ -37,6 +39,7 @@ async function getData() {
     const values = line.split(';');
     if(values[0] == checkid && values[2] >= checkstartdate && values[2] <= checkenddate) {
       step2.push(values.slice(10,58));
+      console.log(step2.length);
     }
   })
 
@@ -44,7 +47,7 @@ async function getData() {
   step2.forEach( row => {
     row.forEach( index => {
       if(index == '2') {
-        row.splice(row.indexOf('2'), 1)
+        row.splice(row.indexOf(index), 1)
       }
     })
     row.pop();
