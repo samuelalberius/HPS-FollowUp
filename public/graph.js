@@ -96,8 +96,8 @@ function getUserInput() {
   myForm.addEventListener("submit", (e) => {
   e.preventDefault();
   checkid = document.getElementById('id').value;
-  checkstartdate = document.getElementById('startdate').value;
-  checkenddate = document.getElementById('enddate').value;
+  checkstartdate = document.getElementById('startdate').value + '0000';
+  checkenddate = document.getElementById('enddate').value + '0000';
 
   getData();
 
