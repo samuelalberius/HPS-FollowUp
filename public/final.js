@@ -44,14 +44,13 @@ async function getData() {
   })
 
 //Isolates wanted values from selected rows
-  step2.forEach( row => {
-    row.forEach( index => {
-      if(index == '2') {
-        row.splice(row.indexOf(index), 1)
-      }
-    })
-    row.pop();
-  })
+  for (var i = 0; i < step2.length; i++) {
+    var temp = []
+    for (var j = 0; j < step2[i].length; j = j + 2) {
+      temp.push(step2[i][j]);
+    }
+    step2[i] = temp
+  }
 
 //Converts arrays of comma-denoted values to readable values for graph-input
   step2.forEach( row => {
