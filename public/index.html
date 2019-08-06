@@ -34,7 +34,7 @@
 			<div class="text1">
 				COSTUMER ID.
 			</div>
-			<input type="text" id="id" placeholder="Customer ID" >
+			<input type="text" id="id" placeholder="Customer ID" value="734012530000000438" >
 				<div class="text1">
 					TYPE OF ANALYSIS.
 				</div>
@@ -48,15 +48,14 @@
 					<div class="text1">
 					START DATE.
 					</div>
-					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12">
+					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="20170101">
 					<div class="text1">
 					END DATE.
 					</div>
-					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12">
+					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="20170120">
 				</div>
 			<button type="submit" id="submit">Submit</button>
 		</div>
-
 	</div>
 	<div class="divider">
 		<a name="scrollpoint"></a>
@@ -65,24 +64,21 @@
 	<div class="graphArea">
 		<div id="graphLeft" class="graph">
 			<div id ="nameLeft" class="name">
-				Simulated output.
+				Simulated output
 			</div>
 			<canvas id="chartLeft"></canvas>
 		</div>
 		<div id="informationRight" class="graph">
 			<div id ="nameRight" class="name">
-				Raw data collected.
-				<p id="output"></p>
+				Raw data
 			</div>
-			<p> </p>
+			<div class="output_box">
+				<table class="table" id="output"></table>
+			</div>
 		</div>
+	</div>
 	<script src="final.js"></script>
 	</div>
 </main>
-<footer>
-	<div class="footerContainer">
-		HPSolartech
-	</div>
-</footer>
 </body>
 </html>

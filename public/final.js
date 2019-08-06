@@ -123,10 +123,12 @@ function drawGraph(matrix) {
 
 function printData(matrix) {
   var outputStream = [];
+  outputStream.push("<tr><th>Day</th><th>Recorded Data</th>")
 
   for(var i = 0; i < matrix.length; i++) {
-    outputStream.push("\n" + matrix[i]);
+    console.log(matrix[i]);
+    outputStream.push("<tr><td style=\"text-align:center;\">" + i + "</td><td style=\"padding: 0 200px 0 40px;\">" + matrix[i] + "</td></tr>");
     }
 
-  document.getElementById("output").innerHTML = outputStream;
+  document.getElementById("output").innerHTML = outputStream.join("");
 }

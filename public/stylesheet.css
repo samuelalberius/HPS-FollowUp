@@ -57,10 +57,6 @@ form {
 	width: 50%;
 }
 
-.scroller {
-
-}
-
 .divider {
 	margin: 30px 0px 60px 40px;
 	font-size: 30px;
@@ -75,30 +71,68 @@ form {
 }
 
 .graph {
-	width: 44%;
+	width: calc(50% - 200px);
 	display: inline-block;
 	padding: 30px 20px;
 	margin: 0px 40px;
-	background-color: white;
-	border: white solid 2px;
-	border-radius: 8px;
-	box-shadow: 0px 0px 6px #bababa;
+	background-color: #fcfafa;
+	border: white solid 40px;
+	border-radius: 0;
+	border-bottom-left-radius:30px;
+	box-shadow: 0px 0px 10px #bababa;
 	float: left;
 	text-align: center;
 }
 
-#graphLeft {
+canvas {
+	margin: 30px 0 30px 30px;
+	min-height: 650px;
+	max-height: 650px;
+	padding-right: 30px;
+	width: auto;
 
 }
+.output_box {
+	overflow: auto;
+	max-height: 710px;
+}
 
-#graphRight {
+table {
+	background: white;
+	width: auto;
+	overflow: auto;
+	text-align: center;
+	font-size: 20px;
+}
 
+th {
+	line-height: 60px;
+	text-align: center;
+	
+}
+
+td {
+	line-height: 50px;
+	width: 100%;
+	text-align: left;
+}
+
+tr:nth-child(even) {
+	background-color: #ebebeb;
+}
+
+#day {
+	background-color: blue;
 }
 
 .name {
-	font-size: 20px;
-	margin-bottom: 20px;
+	font-size: 26px;
+	padding-bottom: 20px;
 	text-align: center;
+}
+
+.name:hover {
+
 }
 
 #nameLeft {
