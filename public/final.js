@@ -90,7 +90,7 @@ function graph_data(matrix) {
 
 function drawGraph(matrix) {
 
-  const myChart = document.getElementById('chartLeft').getContext('2d');
+  const myChart = document.getElementById('power_graph').getContext('2d');
   var dataset = graph_data(matrix);
   var graphData = {
     labels: ['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],

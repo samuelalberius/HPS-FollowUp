@@ -35,9 +35,6 @@ form {
 	width: 360px;
 	border-radius: 6px;
 	background: white;
-	border-color: red;
-
-	font-color: red;
 	color: #242323;
 }
 
@@ -151,7 +148,7 @@ tr:nth-child(even) {
 }
 
 canvas {
-
+	min-height: 556px;
 }
 
 input, select {
@@ -221,18 +218,16 @@ nav {
 nav ul {
 	margin: 20px;
 	padding: 0;
-	list-style: none;
+
 }
 
 nav li {
 	display: inline-block;
 	margin-left: 40px;
+	list-style: none;
 
 }
 
-a {
-
-}
 
 nav a {
 	color: #ffffff;
