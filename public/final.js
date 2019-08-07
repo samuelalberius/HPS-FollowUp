@@ -1,6 +1,7 @@
 
 getUserInput();
 
+//function called by user completing form then parsing for user input data.
 async function getUserInput() {
   const myForm = document.getElementById('userForm');
   myForm.addEventListener("submit", (e) => {
@@ -59,6 +60,7 @@ function parse(matrix){
   return matrix;
 }
 
+//Reads selected file and splits it at new line, returns in matrix form.
 async function readFile() {
   const response = await fetch('resources/produktionsdata.csv');
   const data = await response.text();
@@ -67,6 +69,7 @@ async function readFile() {
   return table;
 }
 
+//Parses data from matrix based on inputs and calls graph-writing method.
 function getData(id, startdate, enddate) {
   readFile().then(data => {
     matrix = parse(consolidate(findEntries(data, id, startdate, enddate)));
@@ -75,6 +78,7 @@ function getData(id, startdate, enddate) {
   });
 }
 
+//Makes graph-readable arrays to send to graph-writing method.
 function graph_data(matrix) {
   var graphs = []
 
@@ -88,6 +92,7 @@ function graph_data(matrix) {
   return graphs
 }
 
+//Draws graph.
 function drawGraph(matrix) {
 
   const myChart = document.getElementById('power_graph').getContext('2d');
@@ -121,6 +126,7 @@ function drawGraph(matrix) {
   printData(matrix)
 }
 
+//Outputs data-stream of selected data based on input.
 function printData(matrix) {
   var outputStream = [];
   outputStream.push("<tr><th>Day</th><th>Recorded Data</th>")
