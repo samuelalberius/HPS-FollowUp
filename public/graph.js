@@ -28,8 +28,6 @@ const graphLeft = new Chart(myChart, {
       data:,
       fill: false,
       borderWidth: 4,
-      borderColor: '#8e5aff',
-
     }]
   },
   options: {

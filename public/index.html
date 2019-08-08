@@ -12,8 +12,8 @@
 </head>
 
 <body>
-<header>
-</header>
+	<header>
+	</header>
 <main>
 	<div class="background">
 		<div class="container">
@@ -28,16 +28,10 @@
 			</nav>
 		</div>
 		<form id="userForm" class"form" action="#" method="get">
-			<div class="textAbove">
-				Enter solar cell data here.
-			</div>
-			<div class="text1">
-				COSTUMER ID.
-			</div>
-			<input type="text" id="id" placeholder="Customer ID" value="" >
-				<div class="text1">
-					TYPE OF ANALYSIS.
-				</div>
+			<div class="textAbove">Enter solar <br> cell data here.</div>
+			<div class="text1">COSTUMER ID</div>
+			<input type="text" id="id" placeholder="Customer ID" value="734012530000000438" >
+				<div class="text1">TYPE OF ANALYSIS</div>
 				<select name="type" >
 					<option value="none">None</option>
 					<option value="sim">Compare to simulation</option>
@@ -45,48 +39,53 @@
 					<option value="sim">Compare to self</option>
 				</select>
 				<div class="dates">
-					<div class="text1">
-					START DATE.
-					</div>
-					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="">
-					<div class="text1">
-					END DATE.
-					</div>
-					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="">
+					<div class="text1">START DATE</div>
+					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="20170101">
+					<div class="text1">END DATE</div>
+					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="20170110">
 				</div>
 			<button type="submit" id="submit">Submit</button>
-		</div>
-	</div>
-	<div class="divider">
-		<a name="scrollpoint"></a>
-		<p>Some usefull graphs. Hopefully.</p>
 	</div>
 	<div class="graphArea">
-		<div id="graphLeft" class="graph">
-			<div id ="nameLeft" class="name">
-				Power graph
-			</div>
+		<p id="divider">Some usefull graphs. Hopefully.</p>
+		<div class="container-graph" id="left">
+			<div id ="nameLeft" class="name">Power graph</div>
 			<canvas id="power_graph"></canvas>
 		</div>
-		<div id="informationRight" class="graph">
-			<div id ="nameRight" class="name">
-				Raw data
-			</div>
-			<div class="output_box">
-				<table class="table" id="output"></table>
-			</div>
+		<div class="container-graph" id="right">
+			<div id ="nameRight" class="name">Raw data</div>
+			<table class="table" id="table">
+				<tr>
+					<td>00</td>
+					<td>01</td>
+					<td>02</td>
+					<td>03</td>
+					<td>04</td>
+					<td>05</td>
+					<td>06</td>
+					<td>07</td>
+					<td>08</td>
+					<td>09</td>
+					<td>10</td>
+					<td>11</td>
+					<td>12</td>
+					<td>13</td>
+					<td>14</td>
+					<td>15</td>
+					<td>16</td>
+					<td>17</td>
+					<td>18</td>
+					<td>19</td>
+					<td>20</td>
+					<td>21</td>
+					<td>22</td>
+					<td>23</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-	<div class="compare_center">
-		<div class="compare_container">
-			<div id="nameBottom" class="name">
-				Compare graph
-			</div>
-				<canvas id="compare_graph"></canvas>
-		</div>
-	</div>
-	<script src="final.js"></script>
-	</div>
+<script src="final.js"></script>
 </main>
 </body>
+
 </html>

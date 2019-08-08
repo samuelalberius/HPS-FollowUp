@@ -1,4 +1,5 @@
 
+getData(0,0,0);
 getUserInput();
 
 //function called by user completing form then parsing for user input data.
@@ -86,7 +87,8 @@ function graph_data(matrix) {
     graphs[i] = {
       data: matrix[i],
       fill: false,
-      borderColor: 'blue',
+      borderColor: 'rgb(43, 34, 48)',
+
     }
   }
   return graphs
@@ -128,13 +130,13 @@ function drawGraph(matrix) {
 
 //Outputs data-stream of selected data based on input.
 function printData(matrix) {
-  var outputStream = [];
-  outputStream.push("<tr><th>Day</th><th>Recorded Data</th>")
+  table = document.getElementById("table");
 
-  for(var i = 0; i < matrix.length; i++) {
-    console.log(matrix[i]);
-    outputStream.push("<tr><td style=\"text-align:center;\">" + i + "</td><td style=\"padding: 0 200px 0 40px;\">" + matrix[i] + "</td></tr>");
+  for (var i = 0; i < matrix.length; i++) {
+    var newRow = table.insertRow(table.length);
+    for (var j = 0; j < matrix[i].length; j++) {
+      var cell = newRow.insertCell(j);
+      cell.innerHTML = matrix[i][j];
     }
-
-  document.getElementById("output").innerHTML = outputStream.join("");
+  }
 }
