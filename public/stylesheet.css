@@ -14,9 +14,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+.container li {
+	float: left;
+}
+
 .logo {
 	width: 170px;
-	padding: 4px 40px;
+	padding: 6px 20px;
 	text-align: center;
 }
 
@@ -35,9 +39,9 @@ body {
 
 form {
 	display: inline-block;
-	margin: 15vh 0px 0px 200px;
+	margin: 15vh 0px 0px 6vw;
 	padding: 40px 0px 40px 30px;
-	width: 360px;
+	width: 320px;
 	background: white;
 	color: #242323;
 }
@@ -191,24 +195,54 @@ footer a {
 
 }
 
-#left {
+#top {
  background-color: white;
  text-align: center;
+ padding: 40px 0;
 }
 
-#right{
+#bottom {
 	background-color: white;
 	text-align: center;
+	padding: 40px 0;
 }
 
 canvas {
-	width: 60vw !important;
-	height: 60vh !important;
+	width: 70vw !important;
+	height: 70vh !important;
 	margin: 0 auto;
 	background: rgba(43,34,48,0.0);
 }
 
-#table {
-	height: 200px;
-	overflow: auto;
+#rawdata {
+	max-height: 1000px !important
+}
+
+table {
+	margin: 0 auto;
+	line-height: 30px;
+	border-collapse: collapse;
+	max-height: 1000px;
+}
+
+th {
+
+}
+
+tr {
+
+}
+
+td {
+	width:40px;
+}
+
+tr:first-child {
+	font-weight: bold;
+	line-height: 50px;
+}
+
+tr:nth-child(2n+2) {
+	background-color: #120f2e;
+	color: white;
 }

@@ -17,7 +17,7 @@
 <main>
 	<div class="background">
 		<div class="container">
-		<img src="resources/hpslogo.png" alt="hpslogo" class="logo">
+			<li><a href="https://hpsolartech.se/"><img src="resources/hpslogo.png" alt="hpslogo" class="logo"></a></li>
 			<nav>
 				<ul>
 					<li><a href="#">Home</a></li>
@@ -48,43 +48,45 @@
 	</div>
 	<div class="graphArea">
 		<p id="divider">Some usefull graphs. Hopefully.</p>
-		<div class="container-graph" id="left">
-			<div id ="nameLeft" class="name">Power graph</div>
+		<div class="container-graph" id="top">
+			<div id ="name_graph" class="name">Power graph</div>
 			<canvas id="power_graph"></canvas>
 		</div>
-		<div class="container-graph" id="right">
-			<div id ="nameRight" class="name">Raw data</div>
-			<table class="table" id="table">
-				<tr>
-					<td>00</td>
-					<td>01</td>
-					<td>02</td>
-					<td>03</td>
-					<td>04</td>
-					<td>05</td>
-					<td>06</td>
-					<td>07</td>
-					<td>08</td>
-					<td>09</td>
-					<td>10</td>
-					<td>11</td>
-					<td>12</td>
-					<td>13</td>
-					<td>14</td>
-					<td>15</td>
-					<td>16</td>
-					<td>17</td>
-					<td>18</td>
-					<td>19</td>
-					<td>20</td>
-					<td>21</td>
-					<td>22</td>
-					<td>23</td>
-				</tr>
-			</table>
+		<div class="container-graph" id="bottom">
+			<div id ="name_table" class="name">Raw data</div>
+				<div class="rawdata" id="rawdata" style="overflow: auto;">
+					<table id="table">
+						<tr>
+							<td>00</td>
+							<td>01</td>
+							<td>02</td>
+							<td>03</td>
+							<td>04</td>
+							<td>05</td>
+							<td>06</td>
+							<td>07</td>
+							<td>08</td>
+							<td>09</td>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td>22</td>
+							<td>23</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
-	</div>
-<script src="final.js"></script>
+	<script src="final.js"></script>
 </main>
 </body>
 

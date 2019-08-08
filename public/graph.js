@@ -7,15 +7,9 @@ const myChart = document.getElementById('chartLeft').getContext('2d');
 const xlables = ['00','01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11',
                   '12','13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
 
-
-
 document.getElementById("submit").addEventListener("click", getUserInput);
 
-
-
 async function makeChart() {
-
-
 
 await getData();
 
@@ -46,7 +40,6 @@ const graphLeft = new Chart(myChart, {
     }
   }
   });
-
 }
 
 async function getData() {
@@ -59,7 +52,6 @@ async function getData() {
   table.forEach(line => {
     const values = line.split(';');
     if(values[0] == checkid && values[2] >= checkstartdate && values[2] <= checkendtdate) {
-
       step2.push(values.slice(10,58));
     }
   })
