@@ -2,6 +2,21 @@
 getData(0,0,0);
 getUserInput();
 
+class Readings {
+  constructior(date, values) {
+    this.date = date;
+    this.values = values;
+  }
+
+  get_date() {
+    return this.date;
+  }
+
+  get_values() {
+    return this.values;
+  }
+}
+
 //function called by user completing form then parsing for user input data.
 async function getUserInput() {
   const myForm = document.getElementById('userForm');
@@ -15,6 +30,15 @@ async function getUserInput() {
   })
 }
 
+//Parses data from matrix based on inputs and calls graph-writing method.
+function getData(id, startdate, enddate) {
+  readFile().then(data => {
+    matrix = parse(consolidate(findEntries(data, id, startdate, enddate)));
+    drawGraph(matrix);
+    printData(matrix);
+  });
+}
+
 //Selects named rows from CSV based on input ID and dates
 function findEntries(table, id, startdate, enddate) {
   var matrix = [];
@@ -22,10 +46,10 @@ function findEntries(table, id, startdate, enddate) {
   table.forEach(line => {
     const values = line.split(';');
     if(values[0] == id && values[2] >= startdate && values[2] <= enddate) {
-      matrix.push(values.slice(10,58));
+      console.log(values[0]);
+      console.log(typeof(values[2]));
     }
   })
-
   return matrix;
 }
 
@@ -57,7 +81,6 @@ function parse(matrix){
     })
       row.splice(0,24);
   })
-
   return matrix;
 }
 
@@ -68,15 +91,6 @@ async function readFile() {
   var table =  data.split('\n');
 
   return table;
-}
-
-//Parses data from matrix based on inputs and calls graph-writing method.
-function getData(id, startdate, enddate) {
-  readFile().then(data => {
-    matrix = parse(consolidate(findEntries(data, id, startdate, enddate)));
-    drawGraph(matrix);
-    printData(matrix);
-  });
 }
 
 //Makes graph-readable arrays to send to graph-writing method.
@@ -139,4 +153,18 @@ function printData(matrix) {
       cell.innerHTML = matrix[i][j];
     }
   }
+}
+
+
+function make_readings(table, id, startdate, enddate) {
+  var matrix = [];
+
+  table.forEach(line => {
+    const values = line.split(';');
+    if(values[0] == id && values[2] >= startdate && values[2] <= enddate) {
+      console.log(values[0]);
+      console.log(typeof(values[2]));
+    }
+  })
+  return matrix;
 }

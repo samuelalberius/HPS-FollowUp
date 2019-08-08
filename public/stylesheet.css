@@ -63,7 +63,7 @@ form {
 	float:left;
 }
 
-.divider {
+#divider {
 	padding: 20px 0px 20px 30px;
 	font-size:26px;
 	color: #2b2230;
@@ -161,7 +161,7 @@ nav a {
 	color: #ffffff;
 	text-decoration: none;
 	text-transform: uppercase;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 
