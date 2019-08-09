@@ -1,5 +1,6 @@
 var readings = [];
 var input;
+var month_values;
 
 class Readings {
   constructor(id, date, values) {
@@ -99,31 +100,61 @@ async function read_file() {
       readings.push(reading);
     }
   })
+
   console.log('done with read_file()');
-    compare();
+
+  reset_month_values();
+  compare();
+  drawGraph();
 
 }
 
 function compare() {
-
   var index = 0;
-  var month_values = [0,0,0,0,0,0,0,0,0,0,0,0];
-  var current_day = readings[i];
-  var next_day = readings[i+1];
 
-  for (var i = 0; i < readings.length; i++) {
+  for (var i = 0; i < readings.length - 1; i++) {
       var x = readings[i].get_values();
       x.forEach( value => {
         month_values[index] += value;
       })
-    }
-    console.log(month_values);
-    if (current_day.get_compare_date() == next_day.get_compare_date()) {
+    if (readings[i].get_compare_date() == readings[i+1].get_compare_date()) {
       console.log('same date');
     } else {
       console.log('different date, adding to index');
       index += 1;
     }
+  }
+}
 
-    console.log(month_values);
+function drawGraph() {
+  Chart.defaults.global.defaultFontSize = 18;
+  const ctx = document.getElementById('power_graph').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['jan','feb','mar','apr','may','jun','jul','aug','sep','okt','nov','dec'],
+      datasets: [{
+        label: '2017',
+        data: month_values,
+        fill: false,
+        backgroundColor: '#21233a',
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            callback: function(value, index, values) {
+              return value + ' kWh';
+            }
+          }
+        }]
+      }
+    }
+  });
+}
+
+function reset_month_values() {
+  month_values = [0,0,0,0,0,0,0,0,0,0,0,0];
 }
