@@ -1,6 +1,6 @@
 var readings = [];
 var input;
-var month_values;
+var month_values = [0];
 
 class Readings {
   constructor(id, date, values) {
@@ -17,8 +17,12 @@ class Readings {
     return this.date;
   }
 
-  get_compare_date() {
+  get_yymm() {
     return (this.date[2]+this.date[3]+this.date[4]+this.date[5]);
+  }
+
+  get_year() {
+    return (this.date[2]+this.date[3]);
   }
 
   get_values() {
@@ -105,28 +109,44 @@ async function read_file() {
 
   reset_month_values();
   compare();
-  drawGraph();
+  temp();
+  draw_graph();
 
 }
 
 function compare() {
   var index = 0;
 
-  for (var i = 0; i < readings.length - 1; i++) {
-      var x = readings[i].get_values();
-      x.forEach( value => {
+  readings[0].get_values().forEach( value => {
+    month_values[0] += value;
+  })
+  var current_day = readings[0].get_yymm();
+
+  for (var i = 1; i < readings.length; i++) {
+    if(readings[i].get_yymm() == current_day) {
+      console.log('same date');
+      readings[i].get_values().forEach( value => {
         month_values[index] += value;
       })
-    if (readings[i].get_compare_date() == readings[i+1].get_compare_date()) {
-      console.log('same date');
     } else {
-      console.log('different date, adding to index');
+      console.log('new date, increasing index');
       index += 1;
+      month_values.push(0);
+      readings[i].get_values().forEach( value => {
+        month_values[index] += value;
+      })
     }
+    current_day = readings[i].get_yymm();
   }
+
+  for (var i = 0; i < month_values.length; i++) {
+      console.log(month_values[i]);
+  }
+
 }
 
-function drawGraph() {
+function draw_graph() {
+
   Chart.defaults.global.defaultFontSize = 18;
   const ctx = document.getElementById('power_graph').getContext('2d');
   const myChart = new Chart(ctx, {
@@ -134,7 +154,7 @@ function drawGraph() {
     data: {
       labels: ['jan','feb','mar','apr','may','jun','jul','aug','sep','okt','nov','dec'],
       datasets: [{
-        label: '2017',
+        label: reading.get_year(),
         data: month_values,
         fill: false,
         backgroundColor: '#21233a',
@@ -156,5 +176,15 @@ function drawGraph() {
 }
 
 function reset_month_values() {
-  month_values = [0,0,0,0,0,0,0,0,0,0,0,0];
+  month_values = [0];
+}
+
+function get_datasets() {
+  var return_data = [];
+
+  return return_data
+}
+
+function temp() {
+
 }
