@@ -1,6 +1,7 @@
 var readings = [];
 var input;
-var month_values = [0];
+var data_values = [0];
+var x_values = [0];
 
 class Readings {
   constructor(id, date, values) {
@@ -107,18 +108,16 @@ async function read_file() {
 
   console.log('done with read_file()');
 
-  reset_month_values();
-  compare();
-  temp();
+  reset_data_values();
+  stacking_values();
   draw_graph();
-
 }
 
 function compare() {
   var index = 0;
 
   readings[0].get_values().forEach( value => {
-    month_values[0] += value;
+    data_values[0] += value;
   })
   var current_day = readings[0].get_yymm();
 
@@ -126,21 +125,21 @@ function compare() {
     if(readings[i].get_yymm() == current_day) {
       console.log('same date');
       readings[i].get_values().forEach( value => {
-        month_values[index] += value;
+        data_values[index] += value;
       })
     } else {
       console.log('new date, increasing index');
       index += 1;
-      month_values.push(0);
+      data_values.push(0);
       readings[i].get_values().forEach( value => {
-        month_values[index] += value;
+        data_values[index] += value;
       })
     }
     current_day = readings[i].get_yymm();
   }
 
-  for (var i = 0; i < month_values.length; i++) {
-      console.log(month_values[i]);
+  for (var i = 0; i < data_values.length; i++) {
+      console.log(data_values[i]);
   }
 
 }
@@ -150,13 +149,13 @@ function draw_graph() {
   Chart.defaults.global.defaultFontSize = 18;
   const ctx = document.getElementById('power_graph').getContext('2d');
   const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-      labels: ['jan','feb','mar','apr','may','jun','jul','aug','sep','okt','nov','dec'],
+      labels: x_values,
       datasets: [{
         label: reading.get_year(),
-        data: month_values,
-        fill: false,
+        data: data_values,
+        fill: true,
         backgroundColor: '#21233a',
       }]
     },
@@ -169,22 +168,41 @@ function draw_graph() {
               return value + ' kWh';
             }
           }
+        }],
+        xAxes: [{
+
         }]
+      },
+      elements: {
+        point:{
+          radius: 0
+        }
       }
     }
   });
 }
 
-function reset_month_values() {
-  month_values = [0];
+function reset_data_values() {
+  data_values = [0];
+  x_values = [0];
 }
 
-function get_datasets() {
-  var return_data = [];
+function stacking_values() {
+  var total = 0;
 
-  return return_data
-}
+  for (var i = 0; i < readings.length; i++) {
+    readings[i].get_values().forEach( value => {
+      total += value;
+      var rounded = total.toFixed(2);
+      data_values.push(parseFloat(rounded));
 
-function temp() {
-
+      if (i % 24 == 0) {
+        x_values.push(i);
+      } else {
+        x_values.push("");
+      }
+    })
+  }
+  data_values.shift();
+  x_values.shift();
 }

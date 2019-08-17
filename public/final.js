@@ -30,15 +30,6 @@ async function getUserInput() {
   })
 }
 
-//Parses data from matrix based on inputs and calls graph-writing method.
-function getData(id, startdate, enddate) {
-  readFile().then(data => {
-    matrix = parse(consolidate(findEntries(data, id, startdate, enddate)));
-    drawGraph(matrix);
-    printData(matrix);
-  });
-}
-
 //Selects named rows from CSV based on input ID and dates
 function findEntries(table, id, startdate, enddate) {
   var matrix = [];
@@ -46,8 +37,7 @@ function findEntries(table, id, startdate, enddate) {
   table.forEach(line => {
     const values = line.split(';');
     if(values[0] == id && values[2] >= startdate && values[2] <= enddate) {
-      console.log(values[0]);
-      console.log(typeof(values[2]));
+      matrix.push(values.slice(10,58));
     }
   })
   return matrix;
@@ -153,18 +143,4 @@ function printData(matrix) {
       cell.innerHTML = matrix[i][j];
     }
   }
-}
-
-
-function make_readings(table, id, startdate, enddate) {
-  var matrix = [];
-
-  table.forEach(line => {
-    const values = line.split(';');
-    if(values[0] == id && values[2] >= startdate && values[2] <= enddate) {
-      console.log(values[0]);
-      console.log(typeof(values[2]));
-    }
-  })
-  return matrix;
 }
