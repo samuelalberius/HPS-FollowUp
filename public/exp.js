@@ -146,7 +146,8 @@ function compare() {
 
 function draw_graph() {
 
-  Chart.defaults.global.defaultFontSize = 18;
+  Chart.defaults.global.defaultFontSize = 20;
+  Chart.defaults.global.defaultFontColor='black';
   const ctx = document.getElementById('power_graph').getContext('2d');
 
   const myChart = new Chart(ctx, {
@@ -157,14 +158,20 @@ function draw_graph() {
         label: reading.get_year(),
         data: data_values,
         fill: true,
-        backgroundColor: 'rgba(33, 35, 58, 0.2)',
-        borderWidth: 4,
-        borderColor: '#21233a',
+        backgroundColor: 'rgba(18,15,46,0.1)',//'rgba(33, 35, 58, 0.2)',
+        borderWidth: 3,
+        borderColor: '#120f2e',
       }]
     },
     options: {
+      legend: {
+        display: false,
+            },
       scales: {
         yAxes: [{
+          gridLines: {
+                color: "grey",
+              },
           ticks: {
             beginAtZero: true,
             callback: function(value, index, values) {
@@ -173,7 +180,16 @@ function draw_graph() {
           }
         }],
         xAxes: [{
-
+          gridLines: {
+                color: "white",//"rgba(0, 0, 0, 0)",
+                zeroLineColor:"blue"
+              },
+          ticks: {
+            autoSkip: false,
+            callback: function(value, index, values) {
+              return value;
+            }
+          }
         }]
       },
       elements: {
@@ -192,22 +208,29 @@ function reset_data_values() {
 
 function stacking_values() {
   var total = 0;
+  var index = 0;
+  var xvalue = 0;
 
   for (var i = 0; i < readings.length; i++) {
     readings[i].get_values().forEach( value => {
-      total += value;
-      var rounded = total.toFixed(2);
-      data_values.push(parseFloat(rounded));
-
-      if (i % 24 == 0) {
-        x_values.push(i);
+      if (index % 336 == 0 || index == 0) {
+        x_values.push('v. ' + xvalue);
+        xvalue += 2;
       } else {
         x_values.push("");
       }
-    })
+      index++;
+      total += value;
+      var rounded = total.toFixed(2);
+      data_values.push(parseFloat(rounded));
+      })
   }
+
   data_values.shift();
   x_values.shift();
+
+  console.log(x_values);
+
 }
 
 function loadFile(url, string) {

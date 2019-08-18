@@ -92,6 +92,7 @@ form {
 	font-size: 26px;
 	padding-bottom: 20px;
 	text-align: center;
+	color: ;
 }
 
 .graphArea #divider {
@@ -196,7 +197,7 @@ footer a {
 }
 
 #top {
- background-color: white;
+ background-color: ;
  text-align: center;
  padding: 40px 0;
 }
