@@ -88,11 +88,16 @@ form {
 
 }
 
-.name {
-	font-size: 26px;
+.name_g {
+	width: 150px;
+	margin: auto;
+	font-size: 22px;
 	padding-bottom: 20px;
 	text-align: center;
-	color: ;
+	color: white;
+	background: #120f2e;
+	padding: 5px 0;
+	margin-bottom: 40px;
 }
 
 .graphArea #divider {
@@ -199,7 +204,7 @@ footer a {
 #top {
  background-color: ;
  text-align: center;
- padding: 40px 0;
+ padding: 0 0 40px 0;
 }
 
 #bottom {

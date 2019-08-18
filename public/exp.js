@@ -175,7 +175,7 @@ function draw_graph() {
           ticks: {
             beginAtZero: true,
             callback: function(value, index, values) {
-              return value + ' kWh';
+              return value + ' kWh   ';
             }
           }
         }],
@@ -214,9 +214,9 @@ function stacking_values() {
 
   for (var i = 0; i < readings.length; i++) {
     readings[i].get_values().forEach( value => {
-      if (index % 336 == 0) {
-        x_values.push(year + ' v. ' + xvalue);
-        xvalue += 2;
+      if (index % 672 == 0) {
+        x_values.push(year + ' v. ' + xvalue + '   ');
+        xvalue += 4;
         if (xvalue >= 52) {
           xvalue = 0;
           year++;
