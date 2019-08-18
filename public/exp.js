@@ -148,6 +148,7 @@ function draw_graph() {
 
   Chart.defaults.global.defaultFontSize = 18;
   const ctx = document.getElementById('power_graph').getContext('2d');
+
   const myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -156,7 +157,9 @@ function draw_graph() {
         label: reading.get_year(),
         data: data_values,
         fill: true,
-        backgroundColor: '#21233a',
+        backgroundColor: 'rgba(33, 35, 58, 0.2)',
+        borderWidth: 4,
+        borderColor: '#21233a',
       }]
     },
     options: {
@@ -205,4 +208,12 @@ function stacking_values() {
   }
   data_values.shift();
   x_values.shift();
+}
+
+function loadFile(url, string) {
+  loadJSON(url, getData(), string);
+}
+
+function gotData(data) {
+
 }

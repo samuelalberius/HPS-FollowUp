@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
 	<link rel="shortcut icon" type="image/png" href="resources/hpslogo2.png">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 	<link rel="stylesheet" href="stylesheet.css" type="text/css">
 	<title>HPSolartech Diagnostics</title>
@@ -41,11 +42,11 @@
 				</select>
 				<div class="dates">
 					<div class="text1">START DATE</div>
-					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="20170101">
+					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="20117">
 					<div class="text1">END DATE</div>
-					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="20170110">
+					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="2020">
 				</div>
-			<button type="submit" id="submit">Submit</button>
+			<button type="submit" id="submit" onClick="document.getElementById('top').scrollIntoView();">Submit</button>
 	</div>
 	<div class="graphArea">
 		<p id="divider">Some usefull graphs. Hopefully.</p>
