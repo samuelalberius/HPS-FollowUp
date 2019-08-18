@@ -158,8 +158,8 @@ function draw_graph() {
         label: reading.get_year(),
         data: data_values,
         fill: true,
-        backgroundColor: 'rgba(18,15,46,0.6)',//'rgba(33, 35, 58, 0.2)',
-        borderWidth: 3,
+        backgroundColor: 'rgba(18,15,46,0.2)',//'rgba(33, 35, 58, 0.2)',
+        borderWidth: 5,
         borderColor: '#120f2e',
       }]
     },
