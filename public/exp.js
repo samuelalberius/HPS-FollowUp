@@ -158,7 +158,7 @@ function draw_graph() {
         label: reading.get_year(),
         data: data_values,
         fill: true,
-        backgroundColor: 'rgba(18,15,46,0.1)',//'rgba(33, 35, 58, 0.2)',
+        backgroundColor: 'rgba(18,15,46,0.6)',//'rgba(33, 35, 58, 0.2)',
         borderWidth: 3,
         borderColor: '#120f2e',
       }]
@@ -210,12 +210,17 @@ function stacking_values() {
   var total = 0;
   var index = 0;
   var xvalue = 0;
+  var year = 2017;
 
   for (var i = 0; i < readings.length; i++) {
     readings[i].get_values().forEach( value => {
-      if (index % 336 == 0 || index == 0) {
-        x_values.push('v. ' + xvalue);
+      if (index % 336 == 0) {
+        x_values.push(year + ' v. ' + xvalue);
         xvalue += 2;
+        if (xvalue >= 52) {
+          xvalue = 0;
+          year++;
+        }
       } else {
         x_values.push("");
       }
