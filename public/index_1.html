@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Web Application for Analysing Solcar Cells">
+	<meta name="author" content="Samuel Alberius, Filip Alberius">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="resources/hpslogo2.png">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+	<link rel="stylesheet" href="stylesheet_temp.css" type="text/css">
+	<title>HPSolartech Diagnostics</title>
+</head>
+
+<body>
+	<header>
+	</header>
+<main>
+	<div class="background">
+		<div class="container">
+			<!--<li><a href="https://hpsolartech.se/"><img src="resources/hpslogo.png" alt="hpslogo" class="logo"></a></li>-->
+			<nav>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Calculate</a></li>
+					<li><a href="#">Info</a></li>
+					<li><a href="#">ABOUT US</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="forms-container">
+		<div class="form-con1">
+		<form id="userForm1" class="form" action="#" method="get">
+			<div class="textAbove">Enter solar <br> cell data here.</div>
+			<div class="text1">COSTUMER ID</div>
+			<input type="text" id="id" placeholder="Customer ID" value="" >
+				<div class="text1">TYPE OF ANALYSIS</div>
+				<select name="type" >
+					<option value="none">None</option>
+					<option value="sim">Compare to simulation</option>
+					<option value="sim">Compare to other cell plant</option>
+					<option value="sim">Compare to self</option>
+				</select>
+				<div class="dates">
+					<div class="text1">START DATE</div>
+					<input type="text" id="startdate" placeholder="YYMMDD" maxlength="12" value="">
+					<div class="text1">END DATE</div>
+					<input type="text" id="enddate" placeholder="YYMMDD" maxlength="12" value="">
+				</div>
+			<button type="submit" id="submit" onClick="document.getElementById('divider').scrollIntoView();">Submit</button>
+		</form>
+			</div>
+			<div class="form-con2">
+			<form id="userForm2" class="form2" action="#" method="get">
+				<div class="textAbove">Data för simulation.</div>
+				<div class="text1">LUTNING</div>
+				<input type="text" id="lutning" placeholder="Lutning" value="" >
+				<div class="text1">AZIMUTH</div>
+				<input type="text" id="azimuth" placeholder="Customer ID" value="Azimuth" >
+					<div class="text1">SIMULERINGSREFERENS</div>
+					<select name="type">
+						<option value="none">None</option>
+						<option value="arlanda">Arlanda</option>
+					</select>
+				<button type="submit" id="submit2">Submit</button>
+			</form>
+				</div>
+			</div>
+	</div>
+	<div class="graphArea">
+		<p id="divider">Some usefull graphs. Hopefully.</p>
+		<div class="container-graph" id="top">
+			<div id ="name_graph" class="name_g">Power graph</div>
+			<canvas id="power_graph"></canvas>
+		</div>
+		<div class="container-graph" id="bottom">
+			<div id ="name_table" class="name">Raw data</div>
+				<div class="rawdata" id="rawdata" style="overflow: auto;">
+					<table id="table">
+						<tr>
+							<td>00</td>
+							<td>01</td>
+							<td>02</td>
+							<td>03</td>
+							<td>04</td>
+							<td>05</td>
+							<td>06</td>
+							<td>07</td>
+							<td>08</td>
+							<td>09</td>
+							<td>10</td>
+							<td>11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+							<td>22</td>
+							<td>23</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	<script src="exp.js"></script>
+</main>
+</body>
+
+</html>

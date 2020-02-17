@@ -65,8 +65,8 @@ class Input {
 get_user_input();
 
 async function get_user_input() {
-  const myForm = document.getElementById('userForm');
-  myForm.addEventListener("submit", (e) => {
+  const myForm = document.getElementById('form_left');
+  myForm.addEventListener("button", (e) => {
     e.preventDefault();
     var id = document.getElementById('id').value;
     var startdate = document.getElementById('startdate').value + '0000';
@@ -146,7 +146,7 @@ function compare() {
 
 function draw_graph() {
 
-  Chart.defaults.global.defaultFontSize = 20;
+  Chart.defaults.global.defaultFontSize = 18;
   Chart.defaults.global.defaultFontColor='black';
   const ctx = document.getElementById('power_graph').getContext('2d');
 
@@ -215,7 +215,7 @@ function stacking_values() {
   for (var i = 0; i < readings.length; i++) {
     readings[i].get_values().forEach( value => {
       if (index % 672 == 0) {
-        x_values.push(year + ' v. ' + xvalue + '   ');
+        x_values.push(year + ' v. ' + xvalue + ' ');
         xvalue += 4;
         if (xvalue >= 52) {
           xvalue = 0;

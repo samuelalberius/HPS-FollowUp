@@ -92,6 +92,5 @@ function getUserInput() {
   checkenddate = document.getElementById('enddate').value + '0000';
 
   getData();
-
   })
 }
