@@ -4,14 +4,11 @@
 	padding: 0;
 }
 
-.page_1_container {
-	height: 100vh;
-}
 
 /* Top navigation row with logo */
 
 .navigation {
-	padding: 10px;
+	padding: 12px;
 	margin-bottom: 20px;
 }
 
@@ -46,12 +43,16 @@ li {
 	font-weight: 400;
 }
 
+.name {
+	margin-bottom: -10px;
+	padding: 0;
+}
+
 .navigation-separator {
 	float: left;
 }
 
 .input_form_container {
-	background-image: url("/resources/bakgrund.jpg");
 	height: 60vh;
 	text-align: center;
 	background-size: cover;
@@ -60,26 +61,28 @@ li {
 
 .form_container {
 	height: 70vh;
-	background-image: url("/resources/bakgrund.jpg");
+	/*background-image: url("/resources/bakgrund.jpg");*/
 	background-size: cover;
 	text-align: center;
+	background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255,90,95,1) 100%);
 }
 
 .form {
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
-	border-radius: 0px;
 	padding: 10px 10px;
 	margin: 100px auto;
 }
 
 .sub_form {
-	width: 300px;
+	width: 270px;
 	float: left;
 	background-color: white;
 	margin: 0px 20px;
 	padding: 40px 0px;
+	border-radius: 0px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
 .chart {
@@ -96,7 +99,7 @@ li {
 .rubrik_form {
 	text-transform: uppercase;
 	font-weight: 400;
-	font-size: 12px;
+	font-size: 14px;
 	margin: 10px 0 0 20px;
 }
 
@@ -117,20 +120,22 @@ li {
 	border-color: black;
 	border-style: solid;
 	margin: 4px 20px;
+	background: rgb(255 ,255, 255, 0.0);
 }
 
 .button {
 	float: right;
-	width: 60px;
-	height: 25px;
+	width: 70px;
+	height: 30px;
 	border-width: 1px;
-	border-color: black;
+	border-color: white;
 	border-radius: 3px;
 	font-size: 14px;
-	margin: 20px 40px;
+	margin: 24px 34px -20px 0;
 	text-transform: uppercase;
 	border-style: solid;
-	background-color: white;
+	background-color: rgb(255,90,95);
+	color: white;
 }
 
 .button:hover {
@@ -185,6 +190,49 @@ li {
 	background: white;
 	margin: 20px, auto;
 	width: 95% !important;
+}
+
+.table_container {
+	text-align: center;
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }
 
 .footer_text {
