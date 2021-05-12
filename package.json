@@ -14,7 +14,7 @@
   "author": "Samuel Alberius",
   "license": "MIT",
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "express": "^4.17.1",
     "papaparse": "^5.0.1"
   }
